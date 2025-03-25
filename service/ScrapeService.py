@@ -28,6 +28,7 @@ class ScrapeService:
                     full_url = urljoin(base_url, link_url)
                     found_links.append(f"{idx}. Text: {link_text} - URL: {full_url}")
 
+            print("Found links:", found_links)
             return found_links
         else:
             return f"Access Denied: {response.status_code}"
