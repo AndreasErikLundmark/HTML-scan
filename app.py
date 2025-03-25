@@ -2,7 +2,9 @@
 
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin  # To handle relative URLs
+from urllib.parse import urljoin
+
+import uvicorn
 
 def scrape_url(base_url, search_word):
     url = base_url
