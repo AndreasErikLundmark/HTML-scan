@@ -13,9 +13,8 @@ def scrape_url(base_url, search_word):
         #soup contains all html content as an object...
         soup = BeautifulSoup(response.text, "html.parser")
 
-        # Find all anchor tags (links)
+        # Find all link elements
         links = soup.find_all("a", href=True)
-
 
         # Loop through the links and check if the search word is present in the link text or URL
         found_links = []
