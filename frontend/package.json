@@ -1,29 +1,40 @@
 {
-  "name": "frontend",
-  "private": true,
+  "name": "memory",
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "typecheck": "tsc --noEmit",
+    "dev": "vite --port=8080",
+    "build": "vite build",
+    "serve": "vite preview",
+    "start": "vite",
+    "docker:clean": "docker rm -vf $(docker ps -aq) && docker rmi -f $(docker images -aq)",
+    "docker:build": "docker buildx build --platform linux/amd64 -t elodie8 .",
+    "docker:push": "docker tag elodie8 gcr.io/elodie-fe/elodie8 && docker push gcr.io/elodie-fe/elodie8",
+    "docker:run": "docker run --name elodie8 -p 8080:8080 -d elodie8",
+    "docker:deploy": "gcloud run deploy elodie8 --image gcr.io/elodie-fe/elodie8 --platform managed --region europe-north1 --allow-unauthenticated"
   },
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.21.0",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^15.15.0",
-    "typescript": "~5.7.2",
-    "typescript-eslint": "^8.24.1",
-    "vite": "^6.2.0"
+    "@tailwindcss/postcss": "^4.0.17",
+    "@tanstack/router-plugin": "^1.81.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^4.12.24",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.17",
+    "vite": "^6.2.3"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.60.6",
+    "@tanstack/react-router": "^1.81.9",
+    "@tanstack/router-devtools": "^1.81.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.4.0",
+    "react-photo-album": "^3.0.2",
+    "react-toastify": "^10.0.6"
   }
 }
