@@ -5,3 +5,10 @@
 @layer components {
   @import "daisyui";
 }
+body {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
