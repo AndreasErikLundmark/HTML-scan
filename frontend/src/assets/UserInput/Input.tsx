@@ -38,36 +38,40 @@ export default function Input() {
 
         <button className="btn btn-primary">Submit</button>
       </div>
-      <div className="flex flex-row gap-4 p-4">
-        <label htmlFor="radio-1" className="flex items-center gap-2">
-          <input
-            id="radio-1"
-            type="radio"
-            name="radio-4"
-            className="radio radio-primary"
-            defaultChecked
-          />
-          Links..
-        </label>
+      <div className="buttonContainer">
+        <h4 className="text-xs text-bold ml-4">Target search</h4>
 
-        <label htmlFor="radio-2" className="flex items-center gap-2">
-          <input
-            id="radio-2"
-            type="radio"
-            name="radio-4"
-            className="radio radio-primary"
-          />
-          Headings..
-        </label>
-        <label htmlFor="radio-2" className="flex items-center gap-2">
-          <input
-            id="radio-2"
-            type="radio"
-            name="radio-4"
-            className="radio radio-primary"
-          />
-          Paragraphs..
-        </label>
+        <div className="flex flex-row gap-4 p-4">
+          <label htmlFor="radio-1" className="flex items-center gap-2">
+            <input
+              id="radio-1"
+              type="radio"
+              name="radio-4"
+              className="radio radio-primary"
+              defaultChecked
+            />
+            Links..
+          </label>
+
+          <label htmlFor="radio-2" className="flex items-center gap-2">
+            <input
+              id="radio-2"
+              type="radio"
+              name="radio-4"
+              className="radio radio-primary"
+            />
+            Headings..
+          </label>
+          <label htmlFor="radio-2" className="flex items-center gap-2">
+            <input
+              id="radio-2"
+              type="radio"
+              name="radio-4"
+              className="radio radio-primary"
+            />
+            Paragraphs..
+          </label>
+        </div>
       </div>
     </>
   );
