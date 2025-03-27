@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import "./App.css";
 import Navbar from "./assets/Nav/Navbar";
+import Input from "./assets/UserInput/Input";
 
 function App() {
   return (
     <>
       <Navbar />
-      <p>This is the start</p>
-      <button className="btn btn-primary">Click me</button>
+      <Input />
     </>
   );
 }
