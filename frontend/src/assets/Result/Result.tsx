@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
-import bg2 from "../../assets/Backgrounds/bg2.png";
 import { ahrefResponseObject } from "../types/types";
 import { fetchAhrefs } from "../Api/fetchAhrefs";
 
@@ -42,35 +41,36 @@ export default function Result({ url, searchWord, triggerFetch }: Props) {
   }, [triggerFetch]);
 
   return (
-    <div
-      className="w-[400px] h-[400px] opacity-5 flex flex-col gap-4 p-4 border-t border-base-200 items-center absolute left-1/2 top-[280px] transform -translate-x-1/2"
-      style={{
-        backgroundImage: `url(${bg2})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <button
-        onClick={() =>
-          mutation.mutate({ base_url: url, search_word: searchWord })
-        }
-        disabled={mutation.isPending}
-      >
-        {mutation.isPending ? "Fetching..." : "Fetch Articles"}
-      </button>
+    <div className="h-auto flex flex-col gap-4 p-4 border-t border-base-200">
+      <div className="relative z-10 w-full flex flex-col gap-4 p-4">
+        <div className="text-left text-black">
+          {scannedRefs.length > 0 ? (
+            scannedRefs.map((ref, index) => (
+              <div key={index}>
+                <div>
+                  <strong>Text:</strong> {ref.text}
+                </div>
 
-      <div>
-        {scannedRefs.length > 0 ? (
-          scannedRefs.map((ref, index) => (
-            <div key={index}>
-              <a href={ref.url} target="_blank" rel="noopener noreferrer">
-                {ref.text}
-              </a>
-            </div>
-          ))
-        ) : (
-          <p>No results found</p>
-        )}
+                <div className="border-b border-gray-300 p-2">
+                  <strong>URL:</strong>{" "}
+                  <a
+                    href={ref.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full overflow-hidden text-ellipsis"
+                  >
+                    {ref.url}
+                  </a>
+                </div>
+
+                <br />
+                <br />
+              </div>
+            ))
+          ) : (
+            <p>No results found</p>
+          )}
+        </div>
       </div>
     </div>
   );
