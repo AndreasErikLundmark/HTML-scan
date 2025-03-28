@@ -36,7 +36,7 @@ export default function Input() {
           />
         </label>
 
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary">Scan</button>
       </div>
       <div className="buttonContainer">
         <h4 className="text-xs text-bold ml-4">Target search</h4>
