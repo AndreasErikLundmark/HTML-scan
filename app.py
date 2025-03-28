@@ -4,11 +4,18 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import uvicorn
-
+from fastapi.middleware.cors import CORSMiddleware
 from controller.ScrapeController import router
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (this will allow any domain to access your API)
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "OPTIONS"],  # Allow specific methods
+    allow_headers=["*"],  # Allow all headers
+)
 app.include_router(router)
 
 if __name__ == "__main__":

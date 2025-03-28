@@ -1,4 +1,16 @@
+import { useState } from "react";
+import Result from "../Result/Result";
+
 export default function Input() {
+  const [url, setUrl] = useState("");
+  const [searchWord, setSearchWord] = useState("");
+  const [triggerFetch, setTriggerFetch] = useState(false);
+
+  const scanHandler = () => {
+    console.log("Scanning with:", { url, searchWord });
+    setTriggerFetch((prev) => !prev);
+  };
+
   return (
     <>
       <div className="flex flex-row gap-4 p-4">
@@ -7,9 +19,10 @@ export default function Input() {
           <input
             type="text"
             className="grow h-12 pl-10"
-            placeholder=" https://.."
-          />{" "}
-          {/* Added padding-left for spacing */}
+            placeholder="https://.."
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+          />
         </label>
 
         <label className="input relative">
@@ -33,10 +46,14 @@ export default function Input() {
             type="search"
             className="grow h-12 pl-10"
             placeholder="Search word"
+            value={searchWord}
+            onChange={(e) => setSearchWord(e.target.value)}
           />
         </label>
 
-        <button className="btn btn-primary">Scan</button>
+        <button className="btn btn-primary" onClick={scanHandler}>
+          Scan
+        </button>
       </div>
       <div className="buttonContainer border-b border-color-200">
         <h4 className="text-xs text-bold ml-4">Scan targets</h4>
@@ -72,6 +89,8 @@ export default function Input() {
             Paragraphs..
           </label>
         </div>
+
+        <Result url={url} searchWord={searchWord} triggerFetch={triggerFetch} />
       </div>
     </>
   );
