@@ -38,7 +38,7 @@ export default function Input() {
 
         <button className="btn btn-primary">Scan</button>
       </div>
-      <div className="buttonContainer">
+      <div className="buttonContainer border-b border-color-200">
         <h4 className="text-xs text-bold ml-4">Target search</h4>
 
         <div className="flex flex-row gap-4 p-4">
