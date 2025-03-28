@@ -2,6 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin  # To handle relative URLs
 
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
 class ScrapeService:
     def scrape_url(self, base_url, search_word):
         url = base_url
@@ -19,17 +23,22 @@ class ScrapeService:
 
             found_links = []
 
-            for idx, link in enumerate(links, start=1):
+            for link in links:
                 link_text = link.get_text(strip=True)
                 link_url = link['href']
 
-                if (link_text and search_word.lower() in link_text.lower()) or (
-                        link_url and search_word.lower() in link_url.lower()):
+                # Check if text matches search word
+                if (link_text and search_word.lower() in link_text.lower()) or (link_url and search_word.lower() in link_url.lower()):
                     print("Match found!")
 
+                    # Create the full URL
                     full_url = urljoin(base_url, link_url)
 
-                    found_links.append(f"{idx}. Text: {link_text} - URL: {full_url}")
+                    # Clean up the link text if necessary
+                    link_text = link_text.replace("\n", "").replace("•", "").strip()
+
+                    # Add a dictionary with text and url to the result list
+                    found_links.append({"text": link_text, "url": full_url})
 
             if not found_links:
                 print("No links found!")
