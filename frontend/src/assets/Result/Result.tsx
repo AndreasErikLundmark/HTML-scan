@@ -1,6 +1,18 @@
 import bg2 from "../../assets/Backgrounds/bg2.png";
+import { ahrefResponse } from "../types/types";
 
 export default function Result() {
+  const [scannedRefs, setScannedRefs] = useState<ahrefResponseObject[]>([]);
+
+  const displayRefs: ahrefResponse[] = scannedRefs.map(
+    (ahrefResponseObject) => {
+      return {
+        text: ahrefResponseObject.text,
+        url: ahrefResponseObject.url,
+      };
+    }
+  );
+
   return (
     // <div className="flex items-center justify-center w-screen h-screen">
     <div
@@ -10,7 +22,21 @@ export default function Result() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-    ></div>
+    >
+      <div>
+        {scannedRefs.length > 0 ? (
+          scannedRefs.map((ref, index) => (
+            <div key={index}>
+              <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                {ref.text}
+              </a>
+            </div>
+          ))
+        ) : (
+          <p>No results found</p>
+        )}
+      </div>
+    </div>
     // </div>
   );
 }
