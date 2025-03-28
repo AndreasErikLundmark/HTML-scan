@@ -39,7 +39,7 @@ export default function Input() {
         <button className="btn btn-primary">Scan</button>
       </div>
       <div className="buttonContainer border-b border-color-200">
-        <h4 className="text-xs text-bold ml-4">Target search</h4>
+        <h4 className="text-xs text-bold ml-4">Scan targets</h4>
 
         <div className="flex flex-row gap-4 p-4">
           <label htmlFor="radio-1" className="flex items-center gap-2">
