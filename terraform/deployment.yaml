@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-scraper-backend
+  namespace: default
+spec:
+  replicas: 1  # You can change this to scale your app
+  selector:
+    matchLabels:
+      app: web-scraper-backend
+  template:
+    metadata:
+      labels:
+        app: web-scraper-backend
+    spec:
+      containers:
+        - name: web-scraper-backend
+          image: gcr.io/web-scraper-455220/web-scraper-backend  # Replace with your image URL
+          ports:
+            - containerPort: 5000

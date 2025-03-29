@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-scraper-backend
+  namespace: default
+spec:
+  selector:
+    app: web-scraper-backend
+  ports:
+    - port: 80
+      targetPort: 5000
+  type: LoadBalancer  # Exposes the service externally
