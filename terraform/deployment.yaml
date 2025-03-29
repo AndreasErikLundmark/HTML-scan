@@ -14,7 +14,7 @@ spec:
         app: web-scraper-backend
     spec:
       containers:
-        - name: web-scraper-backend
-          image: gcr.io/web-scraper-455220/web-scraper-backend  # Replace with your image URL
-          ports:
-            - containerPort: 5000
+      - name: web-scraper-backend
+        image: gcr.io/web-scraper-455220/web-scraper-backend:latest  # Ensure this points to the correct image tag
+        ports:
+          - containerPort: 5000

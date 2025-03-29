@@ -19,7 +19,9 @@ app.add_middleware(
 app.include_router(router)
 
 if __name__ == "__main__":
+    uvicorn.run("app:app", host="0.0.0.0", port=5000, reload=True)
 #    base_url = input("Enter the base url: ")
 #    search_word = input("Enter a word to search for in links: ")
 #    scrape_url(base_url, search_word)
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+#    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+
