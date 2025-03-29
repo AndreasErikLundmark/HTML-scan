@@ -10,4 +10,8 @@ To update backend
 ```docker buildx build --platform linux/amd64 -t gcr.io/web-scraper-455220/web-scraper-backend:latest .```
 ```docker push gcr.io/web-scraper-455220/web-scraper-backend:latest```
 
+Kubernetes deployment
+
+```kubectl apply -f deployment.yaml ```
+
 
