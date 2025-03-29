@@ -2,7 +2,7 @@
 
 Backend 
 
-URL: ```http://34.59.91.18:80```
+URL: ```http://34.59.91.18/```
 
 
 To update backend
