@@ -1,6 +1,6 @@
 import { ahrefResponseObject } from "../types/types";
 
-const GET_URL = "http://127.0.0.1:8000/articles/";
+const GET_URL = "http://34.59.91.18/articles/";
 
 export const fetchAhrefs = async (
   base_url: string,
