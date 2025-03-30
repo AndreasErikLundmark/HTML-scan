@@ -16,14 +16,22 @@ Kubernetes deployment
 
 # ------Frontend------- 
 
-Deploy initialize
+Scripts:
+#npm run docker:clean 
+#npm run docker:build
+#npm run docker:push  
+#npm run docker:deploy
+
+#npm run deploy:k8s ( if needed )
+
+
+Deploy initialize long version: 
+
 ### 1. Create image and push:
 cd ../frontend
 ```
 docker buildx build --platform linux/amd64,linux/arm64 -t gcr.io/web-scraper-455220/web-scrape-fe:latest --push .
-
 ```
-
 ### 2. Check image container registry
 ```gcloud container images list-tags gcr.io/web-scraper-455220/web-scrape-fe --project=web-scraper-455220```
 ### 3. Deploy to kubernetes
