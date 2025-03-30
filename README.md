@@ -17,10 +17,11 @@ Kubernetes deployment
 Frontend 
 
 Deploy initialize
+Create image and push:
 cd ../frontend
 ```
-docker buildx build --platform linux/amd64,linux/arm64 -t gcr.io/web-scraper-455220/web-scrape-fe:latest .
-docker push gcr.io/web-scraper-455220/web-scrape-fe:latest
+docker buildx build --platform linux/amd64,linux/arm64 -t gcr.io/web-scraper-455220/web-scrape-fe:latest --push .
+
 ```
 
 
