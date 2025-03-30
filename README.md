@@ -15,6 +15,9 @@ Kubernetes deployment
 ```kubectl apply -f deployment.yaml ```
 
 # ------Frontend------- 
+URL: ```http://104.154.157.26/```
+
+
 see package.json, add secrets
 
 Scripts:
