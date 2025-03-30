@@ -14,4 +14,13 @@ Kubernetes deployment
 
 ```kubectl apply -f deployment.yaml ```
 
+Frontend 
+
+Deploy initialize
+cd ../frontend
+```
+docker build -t gcr.io/YOUR_PROJECT_ID/frontend:v1 -f Dockerfile .
+docker push gcr.io/YOUR_PROJECT_ID/frontend:v1 ```
+
+
 
