@@ -17,12 +17,14 @@ Kubernetes deployment
 # ------Frontend------- 
 
 Scripts:
+```
 #npm run docker:clean 
 #npm run docker:build
 #npm run docker:push  
 #npm run docker:deploy
 
 #npm run deploy:k8s ( if needed )
+```
 
 
 Deploy initialize long version: 
