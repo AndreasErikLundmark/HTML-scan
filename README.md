@@ -14,7 +14,7 @@ Kubernetes deployment
 
 ```kubectl apply -f deployment.yaml ```
 
-#Frontend 
+# ------Frontend------- 
 
 Deploy initialize
 ### 1. Create image and push:
