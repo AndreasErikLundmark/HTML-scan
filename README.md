@@ -19,7 +19,7 @@ Frontend
 Deploy initialize
 cd ../frontend
 ```
-docker build -t gcr.io/web-scraper-455220/web-scrape-fe:latest -f Dockerfile .
+docker buildx build --platform linux/amd64,linux/arm64 -t gcr.io/web-scraper-455220/web-scrape-fe:latest .
 docker push gcr.io/web-scraper-455220/web-scrape-fe:latest
 ```
 
