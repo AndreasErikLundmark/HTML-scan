@@ -15,6 +15,7 @@ Kubernetes deployment
 ```kubectl apply -f deployment.yaml ```
 
 # ------Frontend------- 
+see package.json, add secrets
 
 Scripts:
 ```
