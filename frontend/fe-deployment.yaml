@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-scrape-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-scrape-fe
+  template:
+    metadata:
+      labels:
+        app: web-scrape-fe
+    spec:
+      containers:
+        - name: web-scrape-fe
+          image: gcr.io/web-scraper-455220/web-scrape-fe:latest # Updated to match GCP project and image name
+          ports:
+            - containerPort: 8080 # Changed to 8080 for Nginx
