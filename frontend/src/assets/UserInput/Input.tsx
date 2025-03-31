@@ -9,8 +9,22 @@ export default function Input() {
   const [fetchKey, setFetchKey] = useState(0);
 
   const scanHandler = () => {
+    if (!url || !searchWord) {
+      console.log("URL or search word is empty");
+      alert("URL or search word is empty");
+      return;
+    }
     console.log("Scanning with:", { url, searchWord });
     setFetchKey((prev) => prev + 1); // Always increment, ensuring a re-fetch
+  };
+
+  const handleUrl = (newUrl: string) => {
+    // Check if the URL starts with "https://", otherwise prepend it
+    if (!newUrl.startsWith("https://")) {
+      setUrl("https://" + newUrl);
+    } else {
+      setUrl(newUrl);
+    }
   };
 
   return (
@@ -23,7 +37,7 @@ export default function Input() {
             className="grow h-12 pl-10 "
             placeholder="https://.."
             value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={(e) => handleUrl(e.target.value)}
           />
         </label>
 
