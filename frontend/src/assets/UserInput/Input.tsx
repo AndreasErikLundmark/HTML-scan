@@ -13,7 +13,7 @@ export default function Input() {
 
   return (
     <>
-      <div className="flex flex-row gap-4 p-4">
+      <div className="flex flex-row gap-4 p-4 mt-3">
         <label className="input">
           URL
           <input
@@ -58,36 +58,36 @@ export default function Input() {
           Scan
         </button>
       </div>
-      <div className="buttonContainer border-b border-color-200">
+      <div className="ml-1 buttonContainer border-b border-color-200 b-shadow-2">
         <h4 className="text-xs text-bold ml-4">Scan targets</h4>
 
         <div className="flex flex-row gap-4 p-4">
-          <label htmlFor="radio-1" className="flex items-center gap-2">
+          <label htmlFor="radio-1" className="flex items-center gap-2 text-sm ">
             <input
               id="radio-1"
               type="radio"
               name="radio-4"
-              className="radio radio-primary"
+              className="radio radio-primary shadow-sm size-4"
               defaultChecked
             />
             Links..
           </label>
 
-          <label htmlFor="radio-2" className="flex items-center gap-2">
+          <label htmlFor="radio-2" className="flex items-center gap-2 text-sm">
             <input
               id="radio-2"
               type="radio"
               name="radio-4"
-              className="radio radio-primary"
+              className="radio radio-primary shadow-sm size-4"
             />
             Headings..
           </label>
-          <label htmlFor="radio-2" className="flex items-center gap-2">
+          <label htmlFor="radio-2" className="flex items-center gap-2 text-sm">
             <input
               id="radio-2"
               type="radio"
               name="radio-4"
-              className="radio radio-primary"
+              className="radio radio-primary shadow-sm size-4"
             />
             Paragraphs..
           </label>
