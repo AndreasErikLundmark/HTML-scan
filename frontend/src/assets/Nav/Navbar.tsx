@@ -2,7 +2,7 @@ import icon from "../../assets/Icons/bg4.png";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-300 bg-base-100 shadow-sm">
       <div className="flex-1">
         <img className="w-10 h-11" src={icon} alt="Icon" />
         <a className="btn btn-ghost text-xl">Web Scraper</a>

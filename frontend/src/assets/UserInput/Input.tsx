@@ -4,11 +4,13 @@ import Result from "../Result/Result";
 export default function Input() {
   const [url, setUrl] = useState("");
   const [searchWord, setSearchWord] = useState("");
-  const [triggerFetch, setTriggerFetch] = useState(false);
+  //   const [triggerFetch, setTriggerFetch] = useState(false);
+
+  const [fetchKey, setFetchKey] = useState(0);
 
   const scanHandler = () => {
     console.log("Scanning with:", { url, searchWord });
-    setTriggerFetch((prev) => !prev);
+    setFetchKey((prev) => prev + 1); // Always increment, ensuring a re-fetch
   };
 
   return (
@@ -52,16 +54,16 @@ export default function Input() {
         </label>
 
         <button
-          className="h-10 btn btn-primary shadow-sm"
+          className="h-10 btn btn-success shadow-sm"
           onClick={scanHandler}
         >
           Scan
         </button>
       </div>
       <div
-        className="ml-1 buttonContainer border-b-2 border-gray-300" // Added border and color here
+        className="ml-1 buttonContainer" // Added border and color here
         style={{
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)", // Box-shadow for bottom border
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Box-shadow for bottom border
         }}
       >
         <h4 className="text-xs text-bold ml-4">Scan targets</h4>
@@ -72,7 +74,7 @@ export default function Input() {
               id="radio-1"
               type="radio"
               name="radio-4"
-              className="radio radio-primary shadow-sm size-4"
+              className="radio radio-primary shadow-sm size-4 "
               defaultChecked
             />
             Links
@@ -97,9 +99,9 @@ export default function Input() {
             Paragraphs
           </label>
         </div>
-
-        <Result url={url} searchWord={searchWord} triggerFetch={triggerFetch} />
       </div>
+
+      <Result url={url} searchWord={searchWord} fetchKey={fetchKey} />
     </>
   );
 }
