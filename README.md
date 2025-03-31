@@ -13,6 +13,9 @@ Kubernetes deployment
 
 ```kubectl apply -f deployment.yaml ```
 
+if that don't work...
+```kubectl set image deployment/web-scraper-backend web-scraper-backend=gcr.io/GCP-PROJECT-ID/web-scraper-backend:latest```
+
 # ------Frontend------- 
 URL: ```http://104.154.157.26/```
 
