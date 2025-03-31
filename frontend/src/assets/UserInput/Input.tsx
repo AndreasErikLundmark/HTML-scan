@@ -18,7 +18,7 @@ export default function Input() {
           URL
           <input
             type="text"
-            className="grow h-12 pl-10"
+            className="grow h-12 pl-10 "
             placeholder="https://.."
             value={url}
             onChange={(e) => setUrl(e.target.value)}
@@ -27,7 +27,7 @@ export default function Input() {
 
         <label className="input relative">
           <svg
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 opacity-50"
+            className="absolute h-10 left-3 top-1/2 transform -translate-y-1/2 h-5 opacity-50 shadow-sm"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -44,14 +44,17 @@ export default function Input() {
           </svg>
           <input
             type="search"
-            className="grow h-12 pl-10"
+            className="grow h-12 pl-10 shadow-sm"
             placeholder="Search word"
             value={searchWord}
             onChange={(e) => setSearchWord(e.target.value)}
           />
         </label>
 
-        <button className="btn btn-primary" onClick={scanHandler}>
+        <button
+          className="h-10 btn btn-primary shadow-sm"
+          onClick={scanHandler}
+        >
           Scan
         </button>
       </div>

@@ -16,4 +16,4 @@ spec:
         - name: web-scrape-fe
           image: gcr.io/web-scraper-455220/web-scrape-fe:latest # Updated to match GCP project and image name
           ports:
-            - containerPort: 8080 # Changed to 8080 for Nginx
+            - containerPort: 8080
