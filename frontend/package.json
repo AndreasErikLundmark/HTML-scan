@@ -14,7 +14,7 @@
     "docker:push": "docker tag gcr.io/web-scraper-455220/web-scrape-fe gcr.io/web-scraper-455220/web-scrape-fe && docker push gcr.io/web-scraper-455220/web-scrape-fe",
     "docker:run": "docker run --name web-scrape-fe -p 8080:8080 -d gcr.io/web-scraper-455220/web-scrape-fe",
     "docker:deploy": "gcloud run deploy web-scrape-fe   --image gcr.io/web-scraper-455220/web-scrape-fe   --platform managed   --region europe-north1   --allow-unauthenticated   --project web-scraper-455220",
-    "deploy:k8s": "kubectl apply -f frontend/fe-deployment.yaml && kubectl apply -f frontend/fe-service.yaml"
+    "deploy:k8s": "kubectl delete pod -l app=web-scrape-fe && kubectl apply -f fe-deployment.yaml && kubectl apply -f fe-service.yaml"
   },
   "devDependencies": {
     "@tanstack/router-plugin": "^1.81.9",

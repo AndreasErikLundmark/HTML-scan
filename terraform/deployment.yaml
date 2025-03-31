@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
       - name: web-scraper-backend
+        imagePullPolicy: Always
         image: gcr.io/web-scraper-455220/web-scraper-backend:latest  # Ensure this points to the correct image tag
         ports:
           - containerPort: 5000
