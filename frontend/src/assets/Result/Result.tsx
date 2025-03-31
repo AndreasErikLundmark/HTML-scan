@@ -85,7 +85,12 @@ export default function Result({ url, searchWord, fetchKey }: Props) {
             ))
           ) : scanTriggered ? (
             <p>No results found</p>
-          ) : null}
+          ) : (
+            <p className="italic text-sm">
+              Search any domain with custom search word, scanning for optional
+              targets..
+            </p>
+          )}
         </div>
       </div>
     </div>
