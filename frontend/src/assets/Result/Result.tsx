@@ -6,6 +6,7 @@ import bgImage from "../Backgrounds/bg22.png";
 
 interface Props {
   url: string;
+  clear: boolean;
   searchWord: string;
   fetchKey: number; // Use fetchKey instead of triggerFetch
 }
@@ -31,10 +32,16 @@ const useFetchAhrefsMutation = (
   });
 };
 
-export default function Result({ url, searchWord, fetchKey }: Props) {
+export default function Result({ url, searchWord, fetchKey, clear }: Props) {
   const [scannedRefs, setScannedRefs] = useState<ahrefResponseObject[]>([]);
   const [scanTriggered, setScanTriggered] = useState(false);
   const mutation = useFetchAhrefsMutation(setScannedRefs);
+
+  useEffect(() => {
+    if (clear) {
+      setScannedRefs([]); // Reset scannedRefs when the 'clear' prop is set to true
+    }
+  }, [clear]); // Watch for the `clear` prop change
 
   useEffect(() => {
     if (fetchKey > 0) {

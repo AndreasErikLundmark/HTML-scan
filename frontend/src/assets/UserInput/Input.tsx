@@ -4,7 +4,7 @@ import Result from "../Result/Result";
 export default function Input() {
   const [url, setUrl] = useState("");
   const [searchWord, setSearchWord] = useState("");
-  //   const [triggerFetch, setTriggerFetch] = useState(false);
+  const [triggerClear, setTriggerClear] = useState(false);
 
   const [fetchKey, setFetchKey] = useState(0);
 
@@ -25,6 +25,15 @@ export default function Input() {
     } else {
       setUrl(newUrl);
     }
+  };
+
+  const handleClear = () => {
+    setTriggerClear(true);
+    setUrl("");
+    setSearchWord("");
+    setTimeout(() => {
+      setTriggerClear(false); // Reset clear flag after a brief delay
+    }, 100);
   };
 
   return (
@@ -112,10 +121,18 @@ export default function Input() {
             />
             Paragraphs
           </label>
+          <button className="btn btn-primary shadow-sm" onClick={handleClear}>
+            Clear search
+          </button>
         </div>
       </div>
 
-      <Result url={url} searchWord={searchWord} fetchKey={fetchKey} />
+      <Result
+        url={url}
+        clear={triggerClear}
+        searchWord={searchWord}
+        fetchKey={fetchKey}
+      />
     </>
   );
 }
