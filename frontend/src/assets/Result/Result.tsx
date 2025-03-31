@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { ahrefResponseObject } from "../types/types";
 import { fetchAhrefs } from "../Api/fetchAhrefs";
+import bgImage from "../Backgrounds/bg22.png";
 
 interface Props {
   url: string;
@@ -41,7 +42,15 @@ export default function Result({ url, searchWord, triggerFetch }: Props) {
   }, [triggerFetch]);
 
   return (
-    <div className="h-auto flex flex-col gap-4 p-4 border-t border-base-200">
+    <div
+      className="h-screen flex flex-col gap-4 p-4 "
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "200px", // Ensures the entire image fits inside
+        backgroundPosition: " center 160px",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="relative z-10 w-full flex flex-col gap-4 p-4">
         <div className="text-left text-black">
           {scannedRefs.length > 0 ? (

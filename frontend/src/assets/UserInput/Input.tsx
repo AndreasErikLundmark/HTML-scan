@@ -58,7 +58,12 @@ export default function Input() {
           Scan
         </button>
       </div>
-      <div className="ml-1 buttonContainer border-b border-color-200 b-shadow-2">
+      <div
+        className="ml-1 buttonContainer border-b-2 border-gray-300" // Added border and color here
+        style={{
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)", // Box-shadow for bottom border
+        }}
+      >
         <h4 className="text-xs text-bold ml-4">Scan targets</h4>
 
         <div className="flex flex-row gap-4 p-4">
@@ -70,7 +75,7 @@ export default function Input() {
               className="radio radio-primary shadow-sm size-4"
               defaultChecked
             />
-            Links..
+            Links
           </label>
 
           <label htmlFor="radio-2" className="flex items-center gap-2 text-sm">
@@ -80,7 +85,7 @@ export default function Input() {
               name="radio-4"
               className="radio radio-primary shadow-sm size-4"
             />
-            Headings..
+            Headings
           </label>
           <label htmlFor="radio-2" className="flex items-center gap-2 text-sm">
             <input
@@ -89,7 +94,7 @@ export default function Input() {
               name="radio-4"
               className="radio radio-primary shadow-sm size-4"
             />
-            Paragraphs..
+            Paragraphs
           </label>
         </div>
 
