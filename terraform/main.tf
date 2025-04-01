@@ -1,21 +1,22 @@
 provider "google" {
-  project = "web-scraper-455220"  # Your project ID
-  region  = "us-central1"          # Your region
+  project = "web-scraper-455220"  # Byt ut med ditt projekt-ID
+  region  = "us-central1"  # Du kan byta till önskad region
 }
 
-# Create Kubernetes Cluster
+# Skapa Kubernetes-klustret
 resource "google_container_cluster" "primary" {
   name     = "web-scrape-cluster"
   location = "us-central1"
 
-  deletion_protection       = false
-  remove_default_node_pool  = true
-  initial_node_count        = 1
-  network                   = "default"
-  subnetwork                = "default"
+  deletion_protection = false 
+  remove_default_node_pool = true
+  initial_node_count       = 1
+
+  network    = "default"
+  subnetwork = "default"
 }
 
-# Create a Node Pool in the GKE Cluster
+# Skapa en nodepool i GKE-klustret
 resource "google_container_node_pool" "primary_nodes" {
   name       = "node-pool"
   location   = "us-central1"
@@ -23,23 +24,12 @@ resource "google_container_node_pool" "primary_nodes" {
   node_count = 1
 
   node_config {
-    machine_type = "e2-medium"  # You can change this if needed
+    machine_type = "e2-medium"  # Du kan ändra maskinstorlek om du vill
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
 }
+Hej Magdalena,
 
-# Configure the Kubernetes Provider to work with your GKE Cluster
-provider "kubernetes" {
-  load_config_file = true
-}
-
-# Deploy the Kubernetes resources using the YAML files
-resource "kubernetes_manifest" "python_backend_deployment" {
-  manifest = yamldecode(file("${path.module}/deploy.yaml"))
-}
-
-resource "kubernetes_manifest" "python_backend_service" {
-  manifest = yamldecode(file("${path.module}/service.yaml"))
-}
+Läste Alecta, om det är t e x cobol de är ute efter så blir jag en dålig match ( läser inte cobol nu ) Utöver det kan det eventuellt vara något om inte arbetslivserfarenheten är väldigt viktigt för dem. 

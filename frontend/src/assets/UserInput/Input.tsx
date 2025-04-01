@@ -77,7 +77,7 @@ export default function Input() {
         </label>
 
         <button
-          className="h-10 btn btn-success shadow-sm"
+          className="h-10 btn btn-success shadow-sm rounded-xl"
           onClick={scanHandler}
         >
           Scan
@@ -121,7 +121,10 @@ export default function Input() {
             />
             Paragraphs
           </label>
-          <button className="btn btn-primary shadow-sm" onClick={handleClear}>
+          <button
+            className="absolute top-[165px] right-2 btn btn-b2 shadow-sm h-5 w-25 text-xs rounded-xl"
+            onClick={handleClear}
+          >
             Clear search
           </button>
         </div>
