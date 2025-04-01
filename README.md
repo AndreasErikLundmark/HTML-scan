@@ -1,5 +1,8 @@
 # web-scrape
 
+<img width="1436" alt="Screenshot 2025-04-01 at 09 44 08" src="https://github.com/user-attachments/assets/0bfefa79-1b6f-4dab-acbc-ea64552b9c8a" />
+
+
 Backend 
 
 URL: ```http://34.59.91.18/```
