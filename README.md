@@ -27,9 +27,9 @@ if that don't work...
 URL: ```http://104.154.157.26/```
 
 
-see package.json, add secrets for gcp project and project ids
+add secrets for gcp project and project ids
 
-Scripts to build and deploy:
+Scripts to build and deploy ( see full bash in package.json ):
 ```
 #npm run docker:clean 
 #npm run docker:build
