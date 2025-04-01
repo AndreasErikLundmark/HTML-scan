@@ -39,7 +39,7 @@ export default function Input() {
 
   return (
     <>
-      <div className="flex flex-row gap-4 p-4 mt-3">
+      <div className="flex items-center gap-4 p-4 mt-3 w-full whitespace-nowrap overflow-hidden">
         <label className="input">
           URL
           <input
