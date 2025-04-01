@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Result from "../Result/Result";
+import { CiSquareRemove } from "react-icons/ci";
 
 export default function Input() {
   const [url, setUrl] = useState("");
@@ -122,10 +123,13 @@ export default function Input() {
             Paragraphs
           </label>
           <button
-            className="absolute top-[165px] right-2 btn btn-b2 shadow-sm h-5 w-25 text-xs rounded-xl"
+            className="absolute top-[184px] right-2 h-5 w-25 text-sm rounded-xl bg-transparent focus:ring-0 active:ring-0 shadow-none"
             onClick={handleClear}
           >
-            Clear search
+            <div className="flex items-center gap-1 p-1 text-red-500">
+              Clear Search
+              <CiSquareRemove className="text-xl" />
+            </div>
           </button>
         </div>
       </div>
