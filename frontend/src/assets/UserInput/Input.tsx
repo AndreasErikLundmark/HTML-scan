@@ -123,12 +123,12 @@ export default function Input() {
             Paragraphs
           </label>
           <button
-            className="absolute top-[184px] right-2 h-5 w-25 text-sm rounded-xl bg-transparent focus:ring-0 active:ring-0 shadow-none"
+            className="absolute top-[185px] right-2 h-5 w-25 text-sm rounded-xl bg-transparent shadow-none"
             onClick={handleClear}
           >
-            <div className="flex items-center gap-1 p-1 text-red-500">
-              Clear Search
-              <CiSquareRemove className="text-xl" />
+            <div className="flex items-center gap-1 p-1 text-red-500 hover:text-gray-900 text-bold">
+              Clear
+              <CiSquareRemove className="text-xl text-bold" />
             </div>
           </button>
         </div>
