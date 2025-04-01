@@ -1,4 +1,7 @@
 import icon from "../../assets/Icons/bg4.png";
+import { TiInfoLarge } from "react-icons/ti";
+import { TiInfoLargeOutline } from "react-icons/ti";
+import { FaInfo } from "react-icons/fa";
 
 export default function Navbar() {
   return (
@@ -9,8 +12,8 @@ export default function Navbar() {
         <p className="text-xl">|</p>
         <a className="btn btn-ghost text-xl"> API doc</a>
       </div>
-      <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
+      <div className="flex-none mr-4">
+        {/* <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -25,7 +28,9 @@ export default function Navbar() {
               d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
             ></path>{" "}
           </svg>
-        </button>
+        </button> */}
+
+        <FaInfo />
       </div>
     </div>
   );
