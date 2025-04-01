@@ -7,7 +7,7 @@
 
 
 
-## ------Backend------- 
+## ------ Backend ------- 
 
 URL: ```http://34.59.91.18/```
 
@@ -23,20 +23,20 @@ Kubernetes deployment
 if that don't work...
 ```kubectl set image deployment/web-scraper-backend web-scraper-backend=gcr.io/GCP-PROJECT-ID/web-scraper-backend:latest```
 
-## ------Frontend------- 
+## ------ Frontend ------- 
 URL: ```http://104.154.157.26/```
 
 
-see package.json, add secrets
+see package.json, add secrets for gcp project and project ids
 
-Scripts:
+Scripts to build and deploy:
 ```
 #npm run docker:clean 
 #npm run docker:build
 #npm run docker:push  
 #npm run docker:deploy
 
-#npm run deploy:k8s ( if needed )
+#npm run deploy:k8s ( deploy to kluster if needed )
 ```
 
 
