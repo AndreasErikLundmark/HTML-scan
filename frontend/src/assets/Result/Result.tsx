@@ -35,7 +35,13 @@ const useFetchAhrefsMutation = (
   });
 };
 
-export default function Result({ url, searchWord, fetchKey, clear }: Props) {
+export default function Result({
+  url,
+  searchTarget,
+  searchWord,
+  fetchKey,
+  clear,
+}: Props) {
   const [scannedRefs, setScannedRefs] = useState<ahrefResponseObject[]>([]);
   const [scanTriggered, setScanTriggered] = useState(false);
   const mutation = useFetchAhrefsMutation(setScannedRefs);
@@ -49,11 +55,13 @@ export default function Result({ url, searchWord, fetchKey, clear }: Props) {
   useEffect(() => {
     if (fetchKey > 0) {
       setScanTriggered(true);
-      mutation.mutate({
-        base_url: url,
-        searchTarget: "",
-        search_word: searchWord,
-      });
+      if (searchTarget === "Links") {
+        mutation.mutate({
+          base_url: url,
+          searchTarget: "",
+          search_word: searchWord,
+        });
+      }
     }
   }, [fetchKey]);
 
