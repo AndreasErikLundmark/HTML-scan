@@ -6,6 +6,7 @@ import bgImage from "../Backgrounds/bg22.png";
 
 interface Props {
   url: string;
+  searchTarget: string;
   clear: boolean;
   searchWord: string;
   fetchKey: number;
@@ -17,11 +18,13 @@ const useFetchAhrefsMutation = (
   return useMutation({
     mutationFn: ({
       base_url,
+      searchTarget,
       search_word,
     }: {
       base_url: string;
+      searchTarget: string;
       search_word: string;
-    }) => fetchBackend(base_url, search_word),
+    }) => fetchBackend(base_url, searchTarget, search_word),
     onSuccess: (data) => {
       setScannedRefs(data);
       console.log("Fetched articles:", data);
@@ -46,7 +49,11 @@ export default function Result({ url, searchWord, fetchKey, clear }: Props) {
   useEffect(() => {
     if (fetchKey > 0) {
       setScanTriggered(true);
-      mutation.mutate({ base_url: url, search_word: searchWord });
+      mutation.mutate({
+        base_url: url,
+        searchTarget: "",
+        search_word: searchWord,
+      });
     }
   }, [fetchKey]);
 

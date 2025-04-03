@@ -6,6 +6,7 @@ export default function Input() {
   const [url, setUrl] = useState("");
   const [searchWord, setSearchWord] = useState("");
   const [triggerClear, setTriggerClear] = useState(false);
+  const [searchTarget, setSearchTarget] = useState("Links");
 
   const [fetchKey, setFetchKey] = useState(0);
 
@@ -26,6 +27,10 @@ export default function Input() {
     } else {
       setUrl(newUrl);
     }
+  };
+
+  const handleSearchTarget = (target: string) => {
+    setSearchTarget(target);
   };
 
   const handleClear = () => {
@@ -100,6 +105,7 @@ export default function Input() {
               name="radio-4"
               className="radio radio-primary shadow-sm size-4 "
               defaultChecked
+              onChange={() => handleSearchTarget("links")}
             />
             Links
           </label>
@@ -110,6 +116,7 @@ export default function Input() {
               type="radio"
               name="radio-4"
               className="radio radio-primary shadow-sm size-4"
+              onChange={() => handleSearchTarget("paragraphs")}
             />
             Headings
           </label>
@@ -119,6 +126,7 @@ export default function Input() {
               type="radio"
               name="radio-4"
               className="radio radio-primary shadow-sm size-4"
+              onChange={() => handleSearchTarget("headings")}
             />
             Paragraphs
           </label>
@@ -136,6 +144,7 @@ export default function Input() {
 
       <Result
         url={url}
+        searchTarget={searchTarget}
         clear={triggerClear}
         searchWord={searchWord}
         fetchKey={fetchKey}

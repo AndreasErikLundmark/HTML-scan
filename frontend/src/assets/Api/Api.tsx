@@ -1,14 +1,17 @@
 import { ahrefResponseObject } from "../types/types";
 
-const GET_URL = "http://34.59.91.18/links/";
+const GET_URL = "http://34.59.91.18/";
 
 export const fetchBackend = async (
   base_url: string,
+  search_target: string,
   search_word: string
 ): Promise<ahrefResponseObject[]> => {
   const encodedBaseUrl = encodeURIComponent(base_url);
+  const encodedSearchTarget = encodeURIComponent(search_target);
   const encodedSearchWord = encodeURIComponent(search_word);
-  const urlWithParams = `${GET_URL}?base_url=${encodedBaseUrl}&search_word=${encodedSearchWord}`;
+
+  const urlWithParams = `${GET_URL}?base_url=${encodedBaseUrl}&search_target=${encodedSearchTarget}&search_word=${encodedSearchWord}`;
 
   try {
     const response = await fetch(urlWithParams, {
