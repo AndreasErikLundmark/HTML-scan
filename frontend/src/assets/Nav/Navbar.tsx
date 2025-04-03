@@ -1,6 +1,4 @@
 import icon from "../../assets/Icons/bg4.png";
-import { TiInfoLarge } from "react-icons/ti";
-import { TiInfoLargeOutline } from "react-icons/ti";
 import { FaInfo } from "react-icons/fa";
 
 export default function Navbar() {

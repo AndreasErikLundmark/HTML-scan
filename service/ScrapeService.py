@@ -8,12 +8,24 @@ from urllib.parse import urljoin
 
 class ScrapeService:
     def scrape_url(self, base_url, search_word):
+
+        if not self.is_scraping_allowed(base_url):
+            print(f"Scraping not allowed by {base_url}/robots.txt")
+            return "Scraping is disallowed by robots.txt"
+
         url = base_url
         search_word = search_word.strip()
         print("base_url: " + url)
         print("search_word: " + search_word)
-        headers = {"User-Agent": "Mozilla/5.0"}
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": base_url,
+            "Connection": "keep-alive"
+        }
         response = requests.get(url, headers=headers)
+#        headers = {"User-Agent": "Mozilla/5.0"}
+#        response = requests.get(url, headers=headers)
 
         if response.status_code == 200:
             # soup contains all html content as an object...
@@ -27,17 +39,14 @@ class ScrapeService:
                 link_text = link.get_text(strip=True)
                 link_url = link['href']
 
-                # Check if text matches search word
                 if (link_text and search_word.lower() in link_text.lower()) or (link_url and search_word.lower() in link_url.lower()):
                     print("Match found!")
 
-                    # Create the full URL
                     full_url = urljoin(base_url, link_url)
 
-                    # Clean up the link text if necessary
                     link_text = link_text.replace("\n", "").replace("•", "").strip()
 
-                    # Add a dictionary with text and url to the result list
+
                     found_links.append({"text": link_text, "url": full_url})
 
             if not found_links:
@@ -49,6 +58,11 @@ class ScrapeService:
             return f"Access Denied: {response.status_code}"
 
     def scrapeParagraphs(self, base_url, search_word):
+
+        if not self.is_scraping_allowed(base_url):
+            print(f"Scraping not allowed by {base_url}/robots.txt")
+            return "Scraping is disallowed by robots.txt"
+
         url = base_url
         search_word = search_word.strip()
         print("base_url: " + url)
@@ -100,3 +114,17 @@ class ScrapeService:
             return found_headings
         else:
             return f"Access Denied: {response.status_code}"
+
+    def is_scraping_allowed(self, base_url):
+        robots_url = urljoin(base_url, "/robots.txt")
+        try:
+            response = requests.get(robots_url, timeout=5)
+            if response.status_code == 200:
+                robots_txt = response.text.lower()
+                if "disallow: /" in robots_txt:
+                    return False
+                return True
+        except requests.RequestException:
+            pass  # If robots.txt is unreachable, assume scraping is allowed
+        return True
+

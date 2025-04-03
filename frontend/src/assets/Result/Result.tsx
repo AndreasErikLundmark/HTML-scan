@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { ahrefResponseObject } from "../types/types";
-import { fetchAhrefs } from "../Api/fetchAhrefs";
+import { fetchBackend } from "../Api/Api";
 import bgImage from "../Backgrounds/bg22.png";
 
 interface Props {
   url: string;
   clear: boolean;
   searchWord: string;
-  fetchKey: number; // Use fetchKey instead of triggerFetch
+  fetchKey: number;
 }
 
 const useFetchAhrefsMutation = (
@@ -21,7 +21,7 @@ const useFetchAhrefsMutation = (
     }: {
       base_url: string;
       search_word: string;
-    }) => fetchAhrefs(base_url, search_word),
+    }) => fetchBackend(base_url, search_word),
     onSuccess: (data) => {
       setScannedRefs(data);
       console.log("Fetched articles:", data);
@@ -39,16 +39,16 @@ export default function Result({ url, searchWord, fetchKey, clear }: Props) {
 
   useEffect(() => {
     if (clear) {
-      setScannedRefs([]); // Reset scannedRefs when the 'clear' prop is set to true
+      setScannedRefs([]);
     }
-  }, [clear]); // Watch for the `clear` prop change
+  }, [clear]);
 
   useEffect(() => {
     if (fetchKey > 0) {
       setScanTriggered(true);
       mutation.mutate({ base_url: url, search_word: searchWord });
     }
-  }, [fetchKey]); // Triggers fetch on every change
+  }, [fetchKey]);
 
   return (
     <div

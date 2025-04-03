@@ -2,7 +2,7 @@ import { ahrefResponseObject } from "../types/types";
 
 const GET_URL = "http://34.59.91.18/links/";
 
-export const fetchAhrefs = async (
+export const fetchBackend = async (
   base_url: string,
   search_word: string
 ): Promise<ahrefResponseObject[]> => {
