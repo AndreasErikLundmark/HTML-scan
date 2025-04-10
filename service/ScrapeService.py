@@ -9,10 +9,6 @@ from urllib.parse import urljoin
 class ScrapeService:
     def scrape_url(self, base_url, search_word):
 
-        if not self.is_scraping_allowed(base_url):
-            print(f"Scraping not allowed by {base_url}/robots.txt")
-            return "Scraping is disallowed by robots.txt"
-
         url = base_url
         search_word = search_word.strip()
         print("base_url: " + url)
@@ -115,16 +111,5 @@ class ScrapeService:
         else:
             return f"Access Denied: {response.status_code}"
 
-    def is_scraping_allowed(self, base_url):
-        robots_url = urljoin(base_url, "/robots.txt")
-        try:
-            response = requests.get(robots_url, timeout=5)
-            if response.status_code == 200:
-                robots_txt = response.text.lower()
-                if "disallow: /" in robots_txt:
-                    return False
-                return True
-        except requests.RequestException:
-            pass  # If robots.txt is unreachable, assume scraping is allowed
-        return True
+
 

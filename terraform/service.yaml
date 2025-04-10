@@ -8,5 +8,5 @@ spec:
     app: web-scraper-backend
   ports:
     - port: 80
-      targetPort: 5000
-  type: LoadBalancer  # Exposes the service externally
+      targetPort: 5050
+  type: LoadBalancer

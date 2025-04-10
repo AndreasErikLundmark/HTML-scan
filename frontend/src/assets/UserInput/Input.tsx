@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Result from "../Result/Result";
 import { CiSquareRemove } from "react-icons/ci";
 
@@ -6,7 +6,7 @@ export default function Input() {
   const [url, setUrl] = useState("");
   const [searchWord, setSearchWord] = useState("");
   const [triggerClear, setTriggerClear] = useState(false);
-  const [searchTarget, setSearchTarget] = useState("Links");
+  const [searchTarget, setSearchTarget] = useState("links");
 
   const [fetchKey, setFetchKey] = useState(0);
 
@@ -38,9 +38,14 @@ export default function Input() {
     setUrl("");
     setSearchWord("");
     setTimeout(() => {
-      setTriggerClear(false); // Reset clear flag after a brief delay
+      setTriggerClear(false); 
     }, 100);
   };
+
+  // UseEffect hook to log the value of searchTarget after state updates
+  useEffect(() => {
+    console.log("Updated searchTarget:", searchTarget);
+  }, [searchTarget]);
 
   return (
     <>
@@ -49,7 +54,7 @@ export default function Input() {
           URL
           <input
             type="text"
-            className="grow h-12 pl-10 "
+            className="grow h-12 pl-10"
             placeholder="https://.."
             value={url}
             onChange={(e) => handleUrl(e.target.value)}
@@ -58,7 +63,7 @@ export default function Input() {
 
         <label className="input relative">
           <svg
-            className="absolute h-10 left-3 top-1/2 transform -translate-y-1/2 h-5 opacity-50 shadow-sm"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 opacity-50 shadow-sm"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -90,21 +95,21 @@ export default function Input() {
         </button>
       </div>
       <div
-        className="ml-1 buttonContainer" // Added border and color here
+        className="ml-1 buttonContainer" 
         style={{
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Box-shadow for bottom border
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", 
         }}
       >
         <h4 className="text-xs text-bold ml-4">Scan targets</h4>
 
         <div className="flex flex-row gap-4 p-4">
-          <label htmlFor="radio-1" className="flex items-center gap-2 text-sm ">
+          <label htmlFor="radio-1" className="flex items-center gap-2 text-sm">
             <input
               id="radio-1"
               type="radio"
               name="radio-4"
-              className="radio radio-primary shadow-sm size-4 "
-              defaultChecked
+              className="radio radio-primary shadow-sm size-4"
+              checked={searchTarget === "links"} // Check if 'links' is selected
               onChange={() => handleSearchTarget("links")}
             />
             Links
@@ -116,20 +121,24 @@ export default function Input() {
               type="radio"
               name="radio-4"
               className="radio radio-primary shadow-sm size-4"
-              onChange={() => handleSearchTarget("paragraphs")}
+              checked={searchTarget === "headings"} // Check if 'headings' is selected
+              onChange={() => handleSearchTarget("headings")}
             />
             Headings
           </label>
-          <label htmlFor="radio-2" className="flex items-center gap-2 text-sm">
+
+          <label htmlFor="radio-3" className="flex items-center gap-2 text-sm">
             <input
-              id="radio-2"
+              id="radio-3"
               type="radio"
               name="radio-4"
               className="radio radio-primary shadow-sm size-4"
-              onChange={() => handleSearchTarget("headings")}
+              checked={searchTarget === "paragraphs"} // Check if 'paragraphs' is selected
+              onChange={() => handleSearchTarget("paragraphs")}
             />
             Paragraphs
           </label>
+
           <button
             className="absolute top-[185px] right-2 h-5 w-25 text-sm rounded-xl bg-transparent shadow-none"
             onClick={handleClear}

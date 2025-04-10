@@ -8,11 +8,16 @@ export const fetchBackend = async (
   search_word: string
 ): Promise<ahrefResponseObject[]> => {
   const encodedBaseUrl = encodeURIComponent(base_url);
-  const encodedSearchTarget = encodeURIComponent(search_target);
+  
+  let encodedSearchTarget = search_target.toLowerCase();
+  encodedSearchTarget = encodeURIComponent(encodedSearchTarget);
   const encodedSearchWord = encodeURIComponent(search_word);
+  console.log("encodedSearchtarget: " + encodedSearchTarget);
+ 
+  const urlWithParams = `${GET_URL}${encodedSearchTarget}/?base_url=${encodedBaseUrl}&search_word=${encodedSearchWord}`;
 
-  const urlWithParams = `${GET_URL}?base_url=${encodedBaseUrl}&search_target=${encodedSearchTarget}&search_word=${encodedSearchWord}`;
-
+  // const urlWithParams = `${GET_URL}?base_url=${encodedBaseUrl}&search_target=${encodedSearchTarget}&search_word=${encodedSearchWord}`;
+  console.log("calling with this: " + urlWithParams)
   try {
     const response = await fetch(urlWithParams, {
       method: "GET",
@@ -38,10 +43,11 @@ export const fetchText = async (
   search_word: string
 ): Promise<textResponseObject[]> => {
   const encodedBaseUrl = encodeURIComponent(base_url);
-  const encodedSearchTarget = encodeURIComponent(search_target);
+  let encodedSearchTarget = search_target.toLowerCase();
+  encodedSearchTarget = encodeURIComponent(encodedSearchTarget);
   const encodedSearchWord = encodeURIComponent(search_word);
 
-  const urlWithParams = `${GET_URL}?base_url=${encodedBaseUrl}&search_target=${encodedSearchTarget}&search_word=${encodedSearchWord}`;
+  const urlWithParams = `${GET_URL}${encodedSearchTarget}/?base_url=${encodedBaseUrl}&search_word=${encodedSearchWord}`;
 
   try {
     const response = await fetch(urlWithParams, {

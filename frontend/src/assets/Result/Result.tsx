@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { ahrefResponseObject } from "../types/types";
-import { fetchBackend } from "../Api/Api";
+import { ahrefResponseObject, textResponseObject } from "../types/types";
+import { fetchBackend, fetchText } from "../Api/Api";
 import bgImage from "../Backgrounds/bg22.png";
 
 interface Props {
@@ -12,29 +12,6 @@ interface Props {
   fetchKey: number;
 }
 
-const useFetchAhrefsMutation = (
-  setScannedRefs: React.Dispatch<React.SetStateAction<ahrefResponseObject[]>>
-) => {
-  return useMutation({
-    mutationFn: ({
-      base_url,
-      searchTarget,
-      search_word,
-    }: {
-      base_url: string;
-      searchTarget: string;
-      search_word: string;
-    }) => fetchBackend(base_url, searchTarget, search_word),
-    onSuccess: (data) => {
-      setScannedRefs(data);
-      console.log("Fetched articles:", data);
-    },
-    onError: (error) => {
-      console.error("Error fetching articles:", error);
-    },
-  });
-};
-
 export default function Result({
   url,
   searchTarget,
@@ -42,28 +19,61 @@ export default function Result({
   fetchKey,
   clear,
 }: Props) {
-  const [scannedRefs, setScannedRefs] = useState<ahrefResponseObject[]>([]);
+  // Separate states for text and ahref response objects
+  const [textData, setTextData] = useState<textResponseObject>([]); // Correct type for text data
+  const [linkData, setLinkData] = useState<ahrefResponseObject[]>([]); // Correct type for links
   const [scanTriggered, setScanTriggered] = useState(false);
-  const mutation = useFetchAhrefsMutation(setScannedRefs);
+
+  const mutation = useMutation({
+    mutationFn: async ({
+      base_url,
+      searchTarget,
+      search_word,
+    }: {
+      base_url: string;
+      searchTarget: string;
+      search_word: string;
+    }) => {
+      if (searchTarget === "paragraphs") {
+        return await fetchText(base_url, searchTarget, search_word); // Returns textResponseObject[]
+      } else {
+        return await fetchBackend(base_url, searchTarget, search_word); // Returns ahrefResponseObject[]
+      }
+    },
+    onSuccess: (responseData) => {
+      console.log("Results...." + responseData)
+      if (Array.isArray(responseData) && responseData[0] && 'url' in responseData[0]) {
+       
+        setLinkData(responseData as ahrefResponseObject[]);
+      } else {
+       
+        setTextData(responseData as textResponseObject);
+      }
+    },
+    onError: (error) => {
+      console.error("Error fetching data:", error);
+    },
+  });
 
   useEffect(() => {
     if (clear) {
-      setScannedRefs([]);
+      setTextData([]);
+      setLinkData([]); 
     }
   }, [clear]);
 
   useEffect(() => {
     if (fetchKey > 0) {
       setScanTriggered(true);
-      if (searchTarget === "Links") {
-        mutation.mutate({
-          base_url: url,
-          searchTarget: "",
-          search_word: searchWord,
-        });
-      }
+      mutation.mutate({
+        base_url: url,
+        searchTarget,
+        search_word: searchWord,
+      });
     }
   }, [fetchKey]);
+
+  const isParagraphMode = searchTarget === "paragraph";
 
   return (
     <div
@@ -84,33 +94,40 @@ export default function Result({
                 Scanning...
               </p>
             </div>
-          ) : scannedRefs.length > 0 ? (
-            scannedRefs.map((ref, index) => (
-              <div key={index}>
-                <div>
-                  <strong>Text:</strong> {ref.text}
-                </div>
-                <div className="border-b border-gray-300 p-2">
-                  <strong>URL:</strong>{" "}
-                  <a
-                    href={ref.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full overflow-hidden text-ellipsis"
-                  >
-                    {ref.url}
-                  </a>
-                </div>
-                <br />
-                <br />
-              </div>
-            ))
+          ) : linkData.length > 0 || textData.length > 0 ? (
+            // Render links if linkData is not empty, otherwise render paragraphs
+            isParagraphMode
+              ? textData.map((item, index) => (
+                  <div key={index} className="bg-white shadow-md rounded p-4 my-2 border border-gray-300">
+                    <p className="text-gray-800">{item.text}</p>
+                  </div>
+                ))
+              : linkData.map((item, index) => (
+                  <div key={index} className="border-b border-gray-300 p-2">
+                    <div>
+                      <strong>Text:</strong> {item.text}
+                    </div>
+                    <div>
+                      <strong>URL:</strong>{" "}
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full overflow-hidden text-ellipsis"
+                      >
+                        {item.url}
+                      </a>
+                    </div>
+                    <br />
+                    <br />
+                  </div>
+                ))
           ) : scanTriggered ? (
             <p>No results found</p>
           ) : (
             <p className="italic text-sm">
               Search any domain with custom search word, scanning for optional
-              targets..
+              targets...
             </p>
           )}
         </div>

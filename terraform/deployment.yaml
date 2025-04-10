@@ -4,7 +4,7 @@ metadata:
   name: web-scraper-backend
   namespace: default
 spec:
-  replicas: 1  # You can change this to scale your app
+  replicas: 1
   selector:
     matchLabels:
       app: web-scraper-backend
@@ -16,6 +16,6 @@ spec:
       containers:
       - name: web-scraper-backend
         imagePullPolicy: Always
-        image: gcr.io/web-scraper-455220/web-scraper-backend:latest  # Ensure this points to the correct image tag
+        image: gcr.io/web-scraper-455220/web-scraper-backend:latest
         ports:
-          - containerPort: 5000
+          - containerPort: 5050
