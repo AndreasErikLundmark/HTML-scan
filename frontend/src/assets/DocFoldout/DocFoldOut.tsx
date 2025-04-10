@@ -24,7 +24,12 @@ return (
   <div
     className="collapse-content bg-primary bg-opacity-50 rounded-b-xl text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
   >
+    <p className="mb-2">GET [BACKEND_URL]{title}/?base_url=[DOMAIN_URL]&search_word=[SEARCH_WORD]
+    </p>
+
     <TableFold/>
+
+
   </div>
 </div>
 </div>
