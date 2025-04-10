@@ -3,10 +3,10 @@ import { FaInfo } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-300 bg-base-100 shadow-sm">
+    <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
         <img className="w-10 h-11" src={icon} alt="Icon" />
-        <a className="btn btn-ghost text-xl">Web Scraper UI</a>
+        <a className="btn btn-ghost text-xl">Web Searcher UI</a>
         <p className="text-xl">|</p>
         <a className="btn btn-ghost text-xl"> API doc</a>
       </div>
