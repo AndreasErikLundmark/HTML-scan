@@ -48,7 +48,7 @@ export const fetchText = async (
   const encodedSearchWord = encodeURIComponent(search_word);
 
   const urlWithParams = `${GET_URL}${encodedSearchTarget}/?base_url=${encodedBaseUrl}&search_word=${encodedSearchWord}`;
-
+  console.log("calling with this: " + urlWithParams)
   try {
     const response = await fetch(urlWithParams, {
       method: "GET",

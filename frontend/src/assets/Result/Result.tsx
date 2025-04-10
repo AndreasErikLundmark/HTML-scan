@@ -73,7 +73,7 @@ export default function Result({
     }
   }, [fetchKey]);
 
-  const isParagraphMode = searchTarget === "paragraph";
+  const isParagraphMode = searchTarget === "paragraphs";
 
   return (
     <div
