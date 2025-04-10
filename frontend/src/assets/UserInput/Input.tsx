@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Result from "../Result/Result";
 import { CiSquareRemove } from "react-icons/ci";
 
+
 export default function Input() {
   const [url, setUrl] = useState("");
   const [searchWord, setSearchWord] = useState("");
@@ -139,6 +140,7 @@ export default function Input() {
             Paragraphs
           </label>
 
+        
           <button
             className="absolute top-[185px] right-2 h-5 w-25 text-sm rounded-xl bg-transparent shadow-none"
             onClick={handleClear}

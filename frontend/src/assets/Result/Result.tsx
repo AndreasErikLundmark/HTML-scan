@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { ahrefResponseObject, textResponseObject } from "../types/types";
 import { fetchBackend, fetchText } from "../Api/Api";
-import bgImage from "../Backgrounds/bg22.png";
+
+// import bgImage from "../Backgrounds/bg22.png";
 
 interface Props {
   url: string;
@@ -108,6 +109,8 @@ export default function Result({
       //   backgroundRepeat: "no-repeat",
       // }}
     >
+    
+      
       <div className="relative z-10 w-full flex flex-col gap-4 p-4">
         <div className="text-left text-black">
           {mutation.isPending ? (
@@ -117,6 +120,7 @@ export default function Result({
             </div>
           ) : linkData.length > 0 || textData.length > 0 ? (
             isTextMode ? (
+              
               textData.map((item, index) => (
                 <div
                   key={index}

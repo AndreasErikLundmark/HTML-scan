@@ -27,6 +27,7 @@ export default function Navbar() {
             ></path>{" "}
           </svg>
         </button> */}
+         
 
         <FaInfo />
       </div>
