@@ -1,3 +1,5 @@
+import TableFold from "./TableFold"
+
 interface Props {
     info: string
     title : string
@@ -22,7 +24,7 @@ return (
   <div
     className="collapse-content bg-primary bg-opacity-50 rounded-b-xl text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
   >
-    Click the "Sign Up" button in the top right corner and follow the registration process.
+    <TableFold/>
   </div>
 </div>
 </div>
