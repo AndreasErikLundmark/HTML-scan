@@ -7,7 +7,7 @@ export default function Navbar() {
     <div className="navbar bg-base-200 shadow-sm">
       <div className="flex-1">
         <img className="w-10 h-11" src={icon} alt="Icon" />
-        <Link className="btn btn-active border-none text-xl no-underline hover:underline bg-transparent hover:bg-transparent transition-all duration-300" to="/">Web Searcher UI</Link>  
+        <Link className="btn btn-active border-none text-xl no-underline hover:underline bg-transparent hover:bg-transparent transition-all duration-300" to="/">HTML Scanner UI</Link>  
         <p className="text-xl">|</p>
         <Link   className="btn btn-active border-none text-xl no-underline hover:underline bg-transparent hover:bg-transparent transition-all duration-300"
  to="/doc">API doc</Link>  

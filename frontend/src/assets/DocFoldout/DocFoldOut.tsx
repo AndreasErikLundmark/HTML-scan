@@ -1,5 +1,8 @@
 import Dot from "../visual/Dot"
 import TableFold from "./TableFold"
+import linkPic from "../images/linkspostman.png"
+import paraPic from "../images/paragraphpostman.png"
+import Response from "./Response"
 
 interface Props {
     info: string
@@ -35,6 +38,12 @@ return (
     </div>
 
     <TableFold/>
+    <div className="w-full mt-4 text-xs">
+        <p className="p-4">Response example: </p>
+  <Response imgUrl={linkPic} width="60%" height="auto" />
+</div>
+
+    
 
 
   </div>
