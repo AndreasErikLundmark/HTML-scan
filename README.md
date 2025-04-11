@@ -2,7 +2,7 @@
 ####  Backend Python FastAPI using BeatifulSoup https://www.crummy.com/software/BeautifulSoup/bs4/doc/ 
 ####  Frontend React + Vite  
 
- <img width="1020" alt="Screenshot 2025-04-01 at 09 56 05" src="https://github.com/user-attachments/assets/606835fd-1bcb-4ace-8046-a49657862d81" />
+<img width="1274" alt="Screenshot 2025-04-11 at 11 12 31" src="https://github.com/user-attachments/assets/c8a3ecb6-c544-42ff-b90a-de4313d9a89f" />
 
 
 
