@@ -10,6 +10,8 @@ export default function IntroText(){
                 <li><strong>Note:</strong> Scanning shouldn't be used without the approval of [appropriate party or authority].</li>
 
             </ul>
+            <br></br>
+            <p className="text-lg">BASE_URL: _ _ _ _ _ _</p>
         </div>
     )
     
