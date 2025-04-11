@@ -18,19 +18,21 @@ return (
    
   <input type="checkbox" className="peer " />
   <div
-    className="collapse-title bg-base-100 bg-opacity-50
-     peer-checked:bg-secondary peer-checked:text-secondary-content"
+    className="collapse-title
+     peer-checked:bg-base-200 peer-checked:text-black"
   > 
   <div className="flex items-center gap-3 text-s font-bold text-black border-spacing-1">
-  <Dot color="bg-success" size="w-3 h-3" animate  />
+  <Dot color="bg-info" size="w-3 h-3" animate  />
     {info}
     </div>
     </div>
   <div
-    className="collapse-content bg-primary bg-opacity-50 rounded-b-xs text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
+    className="collapse-content rounded-b-xs text-blue-950 peer-checked:bg-base-200 peer-checked:text-black"
   >
-    <p className="mb-2">GET [BACKEND_URL]{title}/?base_url=[DOMAIN_URL]&search_word=[SEARCH_WORD]
+    <div className="bg-blue-100 rounded-md p-2 items-center">
+    <p className="mb-2 text-bold">GET [BACKEND_URL]{title}/?base_url=[DOMAIN_URL]&search_word=[SEARCH_WORD]
     </p>
+    </div>
 
     <TableFold/>
 

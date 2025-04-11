@@ -1,19 +1,19 @@
 export default function TableFold(){
     return (
         <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table text-blue-950">
     {/* head */}
-    <thead className="text-white">
-      <tr>
+    <thead className="text-blue-950">
+      <tr className="border-blue-950">
         {/* <th></th> */}
         <th>Parameter</th>
         <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody className=" border-none">
       {/* row 1 */}
-      <tr>
+      <tr className="border-none">
         {/* <th>1</th> */}
         <td>base_url</td>
         <td>string</td>
