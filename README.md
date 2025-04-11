@@ -5,7 +5,7 @@
 
 ## ------ Backend ------- 
 
-URL: ```http://34.59.91.18/```
+
 ####  Backend Python FastAPI using BeatifulSoup https://www.crummy.com/software/BeautifulSoup/bs4/doc/ 
 
 To update backend
