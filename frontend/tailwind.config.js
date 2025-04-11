@@ -13,6 +13,15 @@ module.exports = {
         montserrat: ["'Montserrat'", "sans-serif"],
         parkinsans: ["'Parkinsans'", "sans-serif"],
       },
+      keyframes: {
+        pulseColor: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.4' },
+        },
+      },
+      animation: {
+        pulseColor: 'pulseColor 2s ease-in-out infinite',
+      },
     },
   },
   plugins: [daisyui],

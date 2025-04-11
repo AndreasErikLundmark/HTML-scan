@@ -6,9 +6,9 @@ export default function APIdocPage(){
         <div>
             <Navbar/>
             
-            <DocFoldOut info="get_links" title="/links..."/>
-            <DocFoldOut info="get_headings" title="/headings..."/>
-            <DocFoldOut info="get_paragraphs" title="/paragraphs..."/>
+            <DocFoldOut info="GET_links" title="/links..."/>
+            <DocFoldOut info="GET_headings" title="/headings..."/>
+            <DocFoldOut info="GET_paragraphs" title="/paragraphs..."/>
         </div>
     );
 }
