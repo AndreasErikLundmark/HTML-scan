@@ -41,10 +41,10 @@ return (
     
     <div className="w-full mt-4 text-xs">
         {title === "/links..." ? (
-                    <><p className="p-4">Response example: JSON array with objects containing "text" and "url" fields.</p><Response imgUrl={linkPic} width="60%" height="auto" /></>
+                    <><p className="p-4">Response example: JSON array with objects containing "text" and "url" fields.</p><Response imgUrl={linkPic} width="80%" height="auto" /></>
             ) : (
                 
-                <><p className="p-4">Response example: JSON array of strings.</p><Response imgUrl={paraPic} width="60%" height="auto" /></>
+                <><p className="p-4">Response example: JSON array of strings.</p><Response imgUrl={paraPic} width="80%" height="auto" /></>
             )}
 </div>
 

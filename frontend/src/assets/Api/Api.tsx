@@ -1,6 +1,7 @@
 import { ahrefResponseObject, textResponseObject } from "../types/types";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const GET_URL = "http://34.59.91.18/";
+const GET_URL = BASE_URL;
 
 export const fetchBackend = async (
   base_url: string,
@@ -8,6 +9,7 @@ export const fetchBackend = async (
   search_word: string
 ): Promise<ahrefResponseObject[]> => {
   const encodedBaseUrl = encodeURIComponent(base_url);
+  console.log("calling with backend url: " + GET_URL)
   
   let encodedSearchTarget = search_target.toLowerCase();
   encodedSearchTarget = encodeURIComponent(encodedSearchTarget);

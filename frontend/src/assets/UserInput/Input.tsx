@@ -12,9 +12,9 @@ export default function Input() {
   const [fetchKey, setFetchKey] = useState(0);
 
   const scanHandler = () => {
-    if (!url || !searchWord) {
-      console.log("URL or search word is empty");
-      alert("URL or search word is empty");
+    if (!url) {
+      console.log("URL is empty");
+      alert("URL is empty");
       return;
     }
     console.log("Scanning with:", { url, searchWord });
@@ -89,7 +89,7 @@ export default function Input() {
         </label>
 
         <button
-          className="h-10 btn btn-success shadow-sm rounded-xl"
+          className="h-10 btn btn-info shadow-sm rounded-xl"
           onClick={scanHandler}
         >
           Scan

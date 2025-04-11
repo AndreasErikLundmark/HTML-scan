@@ -115,8 +115,8 @@ export default function Result({
         <div className="text-left text-black">
           {mutation.isPending ? (
             <div className="flex flex-col items-center justify-center gap-2">
-              <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-lg text-green-600 font-semibold">Scanning...</p>
+              <div className="w-16 h-16 border-4 border-info border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-lg text-info font-semibold">Scanning...</p>
             </div>
           ) : linkData.length > 0 || textData.length > 0 ? (
             isTextMode ? (
