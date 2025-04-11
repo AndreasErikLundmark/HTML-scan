@@ -1,6 +1,8 @@
 # HTML Scanner
  
 <img width="1274" alt="Screenshot 2025-04-11 at 11 12 31" src="https://github.com/user-attachments/assets/c8a3ecb6-c544-42ff-b90a-de4313d9a89f" />
+<img width="1274" alt="Screenshot 2025-04-11 at 11 15 30" src="https://github.com/user-attachments/assets/65f6dc48-5e5a-44cf-bb64-5401432e26ab" />
+
 
 ## ------ Backend ------- 
 
