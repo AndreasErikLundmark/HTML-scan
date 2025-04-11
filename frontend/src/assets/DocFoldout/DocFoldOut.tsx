@@ -29,8 +29,8 @@ return (
   <div
     className="collapse-content rounded-b-xs text-blue-950 peer-checked:bg-base-200 peer-checked:text-black"
   >
-    <div className="bg-blue-100 rounded-md p-2 items-center">
-    <p className="mb-2 text-bold">GET [BACKEND_URL]{title}/?base_url=[DOMAIN_URL]&search_word=[SEARCH_WORD]
+    <div className="flex bg-base-300 rounded-md p-2 items-center">
+    <p className="text-bold">GET [BACKEND_URL]{title}/?base_url=[DOMAIN_URL]&search_word=[SEARCH_WORD]
     </p>
     </div>
 
