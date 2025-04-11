@@ -23,6 +23,7 @@ if that don't work...
 URL: ```http://104.154.157.26/```
 
 ####  Frontend React + Vite 
+add .env with VITE_BACKEND_URL:
 add secrets for gcp project and project ids
 
 Scripts to build and deploy ( see full bash in package.json ):
