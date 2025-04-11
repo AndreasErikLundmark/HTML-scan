@@ -1,4 +1,4 @@
-# Web-scraper 
+# HTML Scanner
 ####  Backend Python FastAPI using BeatifulSoup https://www.crummy.com/software/BeautifulSoup/bs4/doc/ 
 ####  Frontend React + Vite  
 
